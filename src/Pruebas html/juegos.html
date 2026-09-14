@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipped - Inicio de Juegos</title>
+    <!-- Cargamos Tailwind CSS mediante CDN para pruebas rápidas -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados para ocultar la barra de desplazamiento horizontal en los carruseles */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#0b0e14] text-white font-sans">
+    
+    <!-- Navbar -->
+    <header class="flex items-center justify-between px-8 py-4 border-b border-gray-800 bg-[#11151c]">
+        <div class="flex items-center gap-2 cursor-pointer">
+            <!-- Círculo del logo -->
+            <div class="w-6 h-6 border-2 border-white rounded-full"></div>
+            <span class="text-xl font-bold tracking-widest uppercase">Clipped</span>
+        </div>
+        <nav class="flex gap-6 text-sm font-medium">
+            <a href="#" class="text-gray-400 hover:text-white transition">inicio</a>
+            <a href="#" class="text-white border-b-2 border-white pb-1">Juegos</a>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="max-w-7xl mx-auto px-8 py-8">
+        
+        <!-- Sección: Lo mejor de la semana -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Lo mejor de la semana</h2>
+            <!-- Contenedor del carrusel -->
+            <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+                
+                <!-- Tarjeta #1 Destacada -->
+                <div class="w-48 flex-shrink-0 relative cursor-pointer">
+                    <div class="aspect-[3/4] bg-gray-800 rounded-lg border-2 border-gray-600 relative">
+                        <span class="absolute -top-3 -right-3 text-red-500 font-black text-3xl drop-shadow-md">#1</span>
+                    </div>
+                </div>
+                
+                <!-- Tarjetas Restantes (Cajas vacías) -->
+                <div class="w-48 flex-shrink-0 relative cursor-pointer">
+                    <div class="aspect-[3/4] bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-500 transition"></div>
+                </div>
+                <div class="w-48 flex-shrink-0 relative cursor-pointer">
+                    <div class="aspect-[3/4] bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-500 transition"></div>
+                </div>
+                <div class="w-48 flex-shrink-0 relative cursor-pointer">
+                    <div class="aspect-[3/4] bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-500 transition"></div>
+                </div>
+                <div class="w-48 flex-shrink-0 relative cursor-pointer">
+                    <div class="aspect-[3/4] bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-500 transition"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección: Fin de semana en overwatch -->
+        <section>
+            <h2 class="text-xl font-bold mb-6">Fin de semana en overwatch</h2>
+            <!-- Contenedor del carrusel -->
+            <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+                
+                <!-- Tarjetas de Video Apaisadas -->
+                <div class="w-64 flex-shrink-0 cursor-pointer">
+                    <div class="aspect-video bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-500 transition"></div>
+                </div>
+                <div class="w-64 flex-shrink-0 cursor-pointer">
+                    <div class="aspect-video bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-500 transition"></div>
+                </div>
+                <div class="w-64 flex-shrink-0 cursor-pointer">
+                    <div class="aspect-video bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-500 transition"></div>
+                </div>
+                <div class="w-64 flex-shrink-0 cursor-pointer">
+                    <div class="aspect-video bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-500 transition"></div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
