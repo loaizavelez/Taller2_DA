@@ -24,12 +24,15 @@ export default function LandingPage() {
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button className="bg-[#c51f5d] hover:bg-[#d82a6f] active:scale-95 text-white font-bold px-8 py-4 rounded-xl text-lg shadow-lg shadow-[#c51f5d]/30 hover:shadow-[#c51f5d]/50 transition duration-300 cursor-pointer flex items-center justify-center gap-3">
+            <Link 
+              to="/descargar" 
+              className="bg-[#c51f5d] hover:bg-[#d82a6f] active:scale-95 text-white font-bold px-8 py-4 rounded-xl text-lg shadow-lg shadow-[#c51f5d]/30 hover:shadow-[#c51f5d]/50 transition duration-300 cursor-pointer flex items-center justify-center gap-3"
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
               Descargar
-            </button>
+            </Link>
             <Link 
               to="/juegos" 
               className="bg-[#243447] border border-[#243447] hover:border-[#c51f5d] text-white font-bold px-8 py-4 rounded-xl text-lg transition duration-300 flex items-center justify-center"
