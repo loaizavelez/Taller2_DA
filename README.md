@@ -2,6 +2,8 @@
 
 **Clipped** es una aplicación web inspirada en plataformas como Medal, diseñada para capturar jugadas automáticamente, explorar clips de la comunidad, seguir creadores destacados y compartir momentos de videojuegos.
 
+https://loaizavelez.github.io/Taller2_DA/
+
 ---
 
 ## Pantallas y Rutas Navegables
