@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Componentes/Navbar';
 
@@ -64,74 +63,97 @@ export default function LandingPage() {
       {/* Métricas / Estadísticas */}
       <section className="max-w-7xl mx-auto px-6 lg:px-16 py-8 w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-[#243447] border border-[#243447] hover:border-[#c51f5d]/50 p-6 rounded-xl text-center shadow-lg transition duration-300">
+          <Link to="/juegos" className="bg-[#243447] border border-[#243447] hover:border-[#c51f5d]/50 p-6 rounded-xl text-center shadow-lg transition duration-300 block">
             <h3 className="text-3xl font-black text-[#c51f5d]">+5,000</h3>
-            <p className="text-gray-300 font-medium mt-1">Clips</p>
-          </div>
+            <p className="text-gray-300 font-medium mt-1">Clips grabados</p>
+          </Link>
 
-          <div className="bg-[#243447] border border-[#243447] hover:border-[#c51f5d]/50 p-6 rounded-xl text-center shadow-lg transition duration-300">
+          <Link to="/usuario/JhonHelldiver" className="bg-[#243447] border border-[#243447] hover:border-[#c51f5d]/50 p-6 rounded-xl text-center shadow-lg transition duration-300 block group">
             <h3 className="text-3xl font-black text-[#c51f5d]">+12,000</h3>
-            <p className="text-gray-300 font-medium mt-1">Usuarios</p>
-          </div>
+            <p className="text-gray-300 font-medium mt-1 group-hover:text-white transition">Comunidad de Usuarios →</p>
+          </Link>
 
-          <div className="bg-[#243447] border border-[#243447] hover:border-[#c51f5d]/50 p-6 rounded-xl text-center shadow-lg transition duration-300">
+          <Link to="/juegos" className="bg-[#243447] border border-[#243447] hover:border-[#c51f5d]/50 p-6 rounded-xl text-center shadow-lg transition duration-300 block">
             <h3 className="text-3xl font-black text-[#c51f5d]">+200</h3>
-            <p className="text-gray-300 font-medium mt-1">Juegos</p>
-          </div>
+            <p className="text-gray-300 font-medium mt-1">Juegos soportados</p>
+          </Link>
         </div>
       </section>
 
       {/* Sección Características */}
       <section className="max-w-7xl mx-auto px-6 lg:px-16 py-16 w-full">
-        <h2 className="text-3xl font-extrabold text-center lg:text-left mb-10 tracking-tight">
-          Características
-        </h2>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-10 gap-4">
+          <h2 className="text-3xl font-extrabold tracking-tight">
+            Características destacadas
+          </h2>
+          <Link to="/features" className="text-[#c51f5d] font-bold text-sm hover:underline flex items-center gap-1.5">
+            Ver todas las características detalladas →
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-[#243447] rounded-xl p-6 border border-gray-700/50 hover:border-[#c51f5d] transition duration-300 flex flex-col items-center text-center group">
+          <Link to="/features" className="bg-[#243447] rounded-xl p-6 border border-gray-700/50 hover:border-[#c51f5d] transition duration-300 flex flex-col items-center text-center group">
             <div className="w-full aspect-video bg-[#141d26] rounded-lg border border-gray-700/50 mb-6 flex items-center justify-center text-gray-500 group-hover:text-[#c51f5d] transition">
-              <span className="text-xs tracking-wider uppercase font-semibold">* Imagen *</span>
+              <span className="text-xs tracking-wider uppercase font-semibold">🎯 Detección Automática</span>
             </div>
             <h3 className="text-xl font-bold text-white">Fácil de usar</h3>
-          </div>
+          </Link>
 
-          <div className="bg-[#243447] rounded-xl p-6 border border-gray-700/50 hover:border-[#c51f5d] transition duration-300 flex flex-col items-center text-center group">
+          <Link to="/features" className="bg-[#243447] rounded-xl p-6 border border-gray-700/50 hover:border-[#c51f5d] transition duration-300 flex flex-col items-center text-center group">
             <div className="w-full aspect-video bg-[#141d26] rounded-lg border border-gray-700/50 mb-6 flex items-center justify-center text-gray-500 group-hover:text-[#c51f5d] transition">
-              <span className="text-xs tracking-wider uppercase font-semibold">* Imagen *</span>
+              <span className="text-xs tracking-wider uppercase font-semibold">⚡ Cero Impacto en FPS</span>
             </div>
             <h3 className="text-xl font-bold text-white">Bien optimizado</h3>
-          </div>
+          </Link>
 
-          <div className="bg-[#243447] rounded-xl p-6 border border-gray-700/50 hover:border-[#c51f5d] transition duration-300 flex flex-col items-center text-center group">
+          <Link to="/features" className="bg-[#243447] rounded-xl p-6 border border-gray-700/50 hover:border-[#c51f5d] transition duration-300 flex flex-col items-center text-center group">
             <div className="w-full aspect-video bg-[#141d26] rounded-lg border border-gray-700/50 mb-6 flex items-center justify-center text-gray-500 group-hover:text-[#c51f5d] transition">
-              <span className="text-xs tracking-wider uppercase font-semibold">* Imagen *</span>
+              <span className="text-xs tracking-wider uppercase font-semibold">🔗 Nube Instantánea</span>
             </div>
             <h3 className="text-xl font-bold text-white">Comparte en cualquier lado</h3>
-          </div>
+          </Link>
         </div>
       </section>
 
       {/* Sección Clips Populares */}
       <section className="max-w-7xl mx-auto px-6 lg:px-16 py-12 w-full">
-        <h2 className="text-3xl font-extrabold text-center lg:text-left mb-10 tracking-tight">
-          Clips populares
-        </h2>
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl font-extrabold tracking-tight">
+            Clips populares
+          </h2>
+          <Link to="/juegos" className="text-[#c51f5d] font-bold text-sm hover:underline">
+            Ver más en Juegos →
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((num) => (
+          {[
+            { id: 1, usuario: 'JhonHelldiver', juego: 'Overwatch 2', vistas: '45.2k', desc: 'Pentakill en Overtime' },
+            { id: 2, usuario: 'BugOnAHelldiverSuit', juego: 'Helldivers 2', vistas: '38.9k', desc: 'Extracción imposible' },
+            { id: 3, usuario: 'FristianoRonaldo', juego: 'Valorant', vistas: '29.4k', desc: 'Ace clutch 1v5' },
+          ].map((item) => (
             <div 
-              key={num} 
-              className="bg-[#243447] rounded-xl p-4 border border-gray-700/50 hover:border-[#c51f5d] transition duration-300 cursor-pointer group"
+              key={item.id} 
+              className="bg-[#243447] rounded-xl p-4 border border-gray-700/50 hover:border-[#c51f5d] transition duration-300 group"
             >
-              <div className="w-full aspect-video bg-[#141d26] rounded-lg border border-gray-800 relative flex items-center justify-center overflow-hidden">
+              <div className="w-full aspect-video bg-[#141d26] rounded-lg border border-gray-800 relative flex items-center justify-center overflow-hidden mb-3">
                 <div className="w-12 h-12 rounded-full bg-[#c51f5d] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300 z-10">
                   <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-                <span className="absolute bottom-3 left-3 text-xs text-gray-500 tracking-widest font-mono">
-                  * GIF *
+                <span className="absolute bottom-3 left-3 text-xs text-gray-400 font-mono">
+                  {item.vistas} vistas
                 </span>
+                <span className="absolute top-3 right-3 text-[10px] bg-[#c51f5d] text-white font-bold px-2 py-0.5 rounded">
+                  {item.juego}
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-xs pt-1">
+                <span className="font-bold text-white truncate">{item.desc}</span>
+                <Link to={`/usuario/${item.usuario}`} className="text-[#c51f5d] hover:underline font-semibold flex-shrink-0 ml-2">
+                  @{item.usuario}
+                </Link>
               </div>
             </div>
           ))}
