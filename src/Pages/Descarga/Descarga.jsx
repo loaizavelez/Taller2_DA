@@ -1,4 +1,4 @@
-import Navbar from '../../Componentes/Navbar';
+import { Navbar, Footer } from '../../Componentes';
 
 export default function Descarga() {
   const pasos = [
@@ -79,11 +79,8 @@ export default function Descarga() {
 
       </main>
 
-      {/* 3. Footer */}
-      <footer className="mt-auto border-t border-[#243447] bg-[#141d26] py-8 px-6 text-center text-sm text-gray-400">
-        <p>© 2026 Clipped. Todos los derechos reservados.</p>
-      </footer>
-
+      {/* 3. Footer modular */}
+      <Footer />
     </div>
   );
 }

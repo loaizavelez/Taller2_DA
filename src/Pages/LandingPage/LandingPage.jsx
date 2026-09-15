@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Navbar from '../../Componentes/Navbar';
+import { Navbar, Footer } from '../../Componentes';
 
 export default function LandingPage() {
   return (
@@ -160,11 +160,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="mt-auto border-t border-[#243447] bg-[#141d26] py-8 px-6 text-center text-sm text-gray-400">
-        <p>© 2026 Clipped. Todos los derechos reservados.</p>
-      </footer>
-
+      {/* Footer modular */}
+      <Footer />
     </div>
   );
 }

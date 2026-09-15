@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Navbar from '../../Componentes/Navbar';
+import { Navbar, Footer, FeatureBlock } from '../../Componentes';
 
 export default function Features() {
   const caracteristicas = [
@@ -9,10 +9,9 @@ export default function Features() {
       subtitulo: 'Captura inteligente sin pulsar ninguna tecla',
       descripcion:
         'Clipped monitorea la partida en tiempo real mediante un motor de reconocimiento de eventos de juego. Ya sea que consigas un tiro a la cabeza, una baja cuádruple o captures la bandera en el último segundo, el sistema identifica el momento clave y genera un clip automático con los segundos previos y posteriores.',
-      alineacion: 'texto-izquierda', // Texto izquierda, Gráfico derecha
+      alineacion: 'texto-izquierda',
       grafico: (
         <div className="w-full bg-[#141922] border border-gray-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:border-[#d92759]/60 transition-all duration-300">
-          {/* Header del Mockup */}
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-800/80">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
@@ -21,7 +20,6 @@ export default function Features() {
             <span className="text-xs text-gray-500 font-mono">Buffer: 60s Activo</span>
           </div>
 
-          {/* Evento detectado */}
           <div className="space-y-4">
             <div className="bg-[#222a37] p-4 rounded-xl border border-gray-700/50 flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -38,7 +36,6 @@ export default function Features() {
               </span>
             </div>
 
-            {/* Barra de estado del búfer */}
             <div className="bg-[#1a222f] p-3 rounded-xl border border-gray-800 space-y-2">
               <div className="flex justify-between text-xs text-gray-400">
                 <span>Marcador de inicio: -25s</span>
@@ -71,10 +68,9 @@ export default function Features() {
       subtitulo: 'Control discreto sin interrumpir tu rendimiento',
       descripcion:
         'Configura y consulta el estado de tus grabaciones directamente dentro del juego con una interfaz transparente y ultraligera. Personaliza la opacidad, la posición en pantalla, el indicador de grabación discreto y las combinaciones de teclas rápidas según tu estilo de juego.',
-      alineacion: 'grafico-izquierda', // Gráfico izquierda, Texto derecha
+      alineacion: 'grafico-izquierda',
       grafico: (
         <div className="w-full bg-[#141922] border border-gray-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:border-[#d92759]/60 transition-all duration-300">
-          {/* Header del Mockup */}
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-800/80">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
@@ -85,7 +81,6 @@ export default function Features() {
             </span>
           </div>
 
-          {/* Opciones del Overlay */}
           <div className="space-y-3">
             <div className="flex items-center justify-between p-3 bg-[#222a37] rounded-xl border border-gray-700/50">
               <div>
@@ -126,10 +121,9 @@ export default function Features() {
       subtitulo: 'Mezcla independiente para juego, micrófono y chat',
       descripcion:
         'Clipped graba el sonido del juego, tu micrófono y las aplicaciones de voz como Discord en canales estéreo completamente independientes. Al editar el clip, puedes subir el volumen del juego, silenciar una tos de tu micrófono o quitar el audio de fondo sin comprometer la jugada.',
-      alineacion: 'texto-izquierda', // Texto izquierda, Gráfico derecha
+      alineacion: 'texto-izquierda',
       grafico: (
         <div className="w-full bg-[#141922] border border-gray-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:border-[#d92759]/60 transition-all duration-300">
-          {/* Header del Mockup */}
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-800/80">
             <span className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
               <svg className="w-4 h-4 text-[#d92759]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,14 +134,10 @@ export default function Features() {
             <span className="text-xs text-emerald-400 font-mono">48 kHz · 24 bit</span>
           </div>
 
-          {/* Faders y ecualizadores */}
           <div className="space-y-3.5">
-            {/* Pista 1 */}
             <div className="bg-[#222a37] p-3 rounded-xl border border-gray-700/50 space-y-1.5">
               <div className="flex justify-between text-xs font-semibold">
-                <span className="text-white flex items-center gap-2">
-                  🎮 Audio del Juego
-                </span>
+                <span className="text-white flex items-center gap-2">🎮 Audio del Juego</span>
                 <span className="text-[#d92759] font-mono">100% (0 dB)</span>
               </div>
               <div className="flex items-center gap-3">
@@ -158,12 +148,9 @@ export default function Features() {
               </div>
             </div>
 
-            {/* Pista 2 */}
             <div className="bg-[#222a37] p-3 rounded-xl border border-gray-700/50 space-y-1.5">
               <div className="flex justify-between text-xs font-semibold">
-                <span className="text-white flex items-center gap-2">
-                  🎙️ Micrófono Principal
-                </span>
+                <span className="text-white flex items-center gap-2">🎙️ Micrófono Principal</span>
                 <span className="text-[#d92759] font-mono">85% (-2 dB)</span>
               </div>
               <div className="flex items-center gap-3">
@@ -174,12 +161,9 @@ export default function Features() {
               </div>
             </div>
 
-            {/* Pista 3 */}
             <div className="bg-[#222a37] p-3 rounded-xl border border-gray-700/50 space-y-1.5">
               <div className="flex justify-between text-xs font-semibold">
-                <span className="text-white flex items-center gap-2">
-                  💬 Discord / Chat de Voz
-                </span>
+                <span className="text-white flex items-center gap-2">💬 Discord / Chat de Voz</span>
                 <span className="text-[#d92759] font-mono">75% (-4 dB)</span>
               </div>
               <div className="flex items-center gap-3">
@@ -199,10 +183,9 @@ export default function Features() {
       subtitulo: 'Fotos nítidas en ultra alta resolución con mapeo HDR',
       descripcion:
         'Inmortaliza los momentos visualmente deslumbrantes de tus partidas en calidad nativa sin compresión. Clipped aplica corrección de color HDR a SDR para que tus capturas se vean exactamente como las experimentas en tu monitor, y las copia de inmediato al portapapeles.',
-      alineacion: 'grafico-izquierda', // Gráfico izquierda, Texto derecha
+      alineacion: 'grafico-izquierda',
       grafico: (
         <div className="w-full bg-[#141922] border border-gray-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:border-[#d92759]/60 transition-all duration-300">
-          {/* Header del Mockup */}
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-800/80">
             <span className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
               <svg className="w-4 h-4 text-[#d92759]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +199,6 @@ export default function Features() {
             </span>
           </div>
 
-          {/* Simulación de Captura */}
           <div className="space-y-4">
             <div className="aspect-video bg-gradient-to-br from-[#222a37] via-[#1a222f] to-[#141922] rounded-xl border border-gray-700/60 relative overflow-hidden flex flex-col items-center justify-center p-4">
               <div className="absolute inset-0 bg-[radial-gradient(#d92759_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
@@ -232,7 +214,6 @@ export default function Features() {
                 </span>
               </div>
 
-              {/* Botón flotante de copiado */}
               <div className="absolute bottom-3 right-3 bg-[#141922]/90 backdrop-blur border border-gray-700 text-xs text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg">
                 <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -259,13 +240,11 @@ export default function Features() {
 
   return (
     <div className="min-h-screen bg-[#141922] text-white font-sans flex flex-col selection:bg-[#d92759] selection:text-white">
-      {/* Navbar Reutilizable con enlace Features */}
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16 flex-1 w-full space-y-16">
         
-        {/* Cabecera principal según Wireframe 1:
-            "Características de [C] CLIPPED" */}
+        {/* Cabecera principal según Wireframe 1 */}
         <section className="text-center space-y-4 pt-4">
           <p className="text-sm font-bold uppercase tracking-widest text-[#d92759]">
             Potencia tu contenido
@@ -288,7 +267,7 @@ export default function Features() {
           </p>
         </section>
 
-        {/* Sección "Funcionamiento" según Wireframe 1 */}
+        {/* Sección "Funcionamiento" */}
         <section className="bg-[#222a37]/80 rounded-2xl border border-gray-700/60 p-8 sm:p-10 shadow-xl relative overflow-hidden backdrop-blur-sm">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#d92759]/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
 
@@ -341,72 +320,22 @@ export default function Features() {
           </div>
         </section>
 
-        {/* Divisor según el Wireframe */}
+        {/* Divisor */}
         <div className="border-b border-gray-800/80 my-8"></div>
 
-        {/* 4 Secciones alternadas (Zigzag) según Wireframe 1:
-            1. Detección de eventos (Texto Izq, Gráfico Der)
-            2. Overlay personalizable (Gráfico Izq, Texto Der)
-            3. Audio multipista (Texto Izq, Gráfico Der)
-            4. Captura de pantalla (Gráfico Izq, Texto Der) */}
+        {/* 4 Secciones alternadas utilizando FeatureBlock */}
         <section className="space-y-20">
-          {caracteristicas.map((item, index) => {
-            const esTextoIzquierda = item.alineacion === 'texto-izquierda';
-
-            return (
-              <div
-                key={item.id}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center ${
-                  esTextoIzquierda ? '' : 'lg:flex-row-reverse'
-                }`}
-              >
-                {/* Columna de Texto */}
-                <div
-                  className={`lg:col-span-6 space-y-4 ${
-                    esTextoIzquierda ? 'order-1' : 'order-1 lg:order-2'
-                  }`}
-                >
-                  <div className="inline-flex items-center gap-2 text-xs font-mono text-[#d92759] font-bold uppercase tracking-wider">
-                    <span>// 0{index + 1}</span>
-                    <span>Módulo Integrado</span>
-                  </div>
-
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
-                    {item.titulo}
-                  </h3>
-
-                  <h4 className="text-lg font-bold text-[#d92759]">
-                    {item.subtitulo}
-                  </h4>
-
-                  <p className="text-gray-300 text-base leading-relaxed">
-                    {item.descripcion}
-                  </p>
-
-                  <div className="pt-2">
-                    <Link
-                      to="/descargar"
-                      className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#d92759] transition group cursor-pointer"
-                    >
-                      Probar en tus juegos
-                      <span className="group-hover:translate-x-1 transition-transform duration-200">
-                        →
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Columna de Gráfico / Mockup */}
-                <div
-                  className={`lg:col-span-6 flex justify-center ${
-                    esTextoIzquierda ? 'order-2' : 'order-2 lg:order-1'
-                  }`}
-                >
-                  {item.grafico}
-                </div>
-              </div>
-            );
-          })}
+          {caracteristicas.map((item, index) => (
+            <FeatureBlock
+              key={item.id}
+              index={index}
+              titulo={item.titulo}
+              subtitulo={item.subtitulo}
+              descripcion={item.descripcion}
+              grafico={item.grafico}
+              alineacion={item.alineacion}
+            />
+          ))}
         </section>
 
         {/* CTA final */}
@@ -435,10 +364,7 @@ export default function Features() {
 
       </main>
 
-      {/* Footer */}
-      <footer className="mt-auto border-t border-gray-800/80 bg-[#141922] py-8 px-6 text-center text-sm text-gray-500">
-        <p>© 2026 Clipped. Todos los derechos reservados.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

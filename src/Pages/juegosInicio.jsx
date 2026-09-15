@@ -1,10 +1,17 @@
 import { useState } from 'react';
-import Navbar from '../Componentes/Navbar';
 import { Link } from 'react-router-dom';
+import {
+  Navbar,
+  Footer,
+  GameCard,
+  ClipCard,
+  ClipModal,
+} from '../Componentes';
 
 export default function JuegosInicio() {
   const [categoriaActiva, setCategoriaActiva] = useState('Todos');
   const [busqueda, setBusqueda] = useState('');
+  const [clipModal, setClipModal] = useState(null);
 
   // Juegos destacados de la semana
   const juegosDestacados = [
@@ -60,8 +67,9 @@ export default function JuegosInicio() {
       creador: 'JhonHelldiver',
       creadorNombre: 'Jhon Helldiver',
       duracion: '0:32',
-      vistas: '45.2k',
+      vistas: '45.2k vistas',
       hace: 'hace 1 día',
+      resolucion: '1440p 60fps',
     },
     {
       id: 2,
@@ -71,8 +79,9 @@ export default function JuegosInicio() {
       creador: 'BugOnAHelldiverSuit',
       creadorNombre: 'Terminid Infiltrado',
       duracion: '0:58',
-      vistas: '38.9k',
+      vistas: '38.9k vistas',
       hace: 'hace 2 días',
+      resolucion: '4K 60fps',
     },
     {
       id: 3,
@@ -82,8 +91,9 @@ export default function JuegosInicio() {
       creador: 'FristianoRonaldo',
       creadorNombre: 'Fristiano Ronaldo',
       duracion: '0:41',
-      vistas: '29.4k',
+      vistas: '29.4k vistas',
       hace: 'hace 3 días',
+      resolucion: '1080p 120fps',
     },
     {
       id: 4,
@@ -93,8 +103,9 @@ export default function JuegosInicio() {
       creador: 'HealerMain',
       creadorNombre: 'Mercy & Kiriko Lover',
       duracion: '0:26',
-      vistas: '21.7k',
+      vistas: '21.7k vistas',
       hace: 'hace 4 días',
+      resolucion: '1440p 60fps',
     },
     {
       id: 5,
@@ -104,8 +115,9 @@ export default function JuegosInicio() {
       creador: 'TankPro',
       creadorNombre: 'Reinhardt Shield',
       duracion: '0:35',
-      vistas: '19.3k',
+      vistas: '19.3k vistas',
       hace: 'hace 5 días',
+      resolucion: '1440p 60fps',
     },
     {
       id: 6,
@@ -115,12 +127,11 @@ export default function JuegosInicio() {
       creador: 'ToxicPlayer',
       creadorNombre: 'Reaper Main',
       duracion: '0:22',
-      vistas: '33.1k',
+      vistas: '33.1k vistas',
       hace: 'hace 6 días',
+      resolucion: '1080p 60fps',
     },
   ];
-
-  const [clipModal, setClipModal] = useState(null);
 
   const juegosFiltrados = juegosDestacados.filter((juego) => {
     const coincideCategoria =
@@ -191,7 +202,7 @@ export default function JuegosInicio() {
           ))}
         </div>
 
-        {/* Sección: Lo mejor de la semana (Clicables a cada juego) */}
+        {/* Sección: Lo mejor de la semana usando GameCard modular */}
         <section>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -212,59 +223,20 @@ export default function JuegosInicio() {
             style={{ scrollbarWidth: 'none' }}
           >
             {juegosFiltrados.map((juego) => (
-              <Link
+              <GameCard
                 key={juego.id}
-                to={`/juegos/${juego.id}`}
-                className="w-52 flex-shrink-0 cursor-pointer group block"
-              >
-                <div className="aspect-[3/4] bg-[#222a37] rounded-2xl group-hover:ring-2 ring-[#d92759] transition-all duration-300 relative w-full h-full flex flex-col justify-between p-4 overflow-hidden border border-gray-800/80 shadow-lg group-hover:-translate-y-1">
-                  {/* Gradiente de fondo del juego */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t ${juego.color} opacity-20 group-hover:opacity-30 transition-opacity`}
-                  ></div>
-
-                  {/* Posición #1, #2, etc. */}
-                  <span className="absolute -top-1 -right-1 text-[#d92759] font-black text-4xl drop-shadow-xl z-10 pr-3 pt-2">
-                    {juego.posicion}
-                  </span>
-
-                  {/* Icono central de Play con efecto hover */}
-                  <div className="my-auto flex flex-col items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-[#141922]/80 border border-gray-700 flex items-center justify-center text-gray-400 group-hover:text-[#d92759] group-hover:scale-110 group-hover:border-[#d92759] transition-all duration-300 shadow-md">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-7 h-7 ml-0.5"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Información inferior del juego */}
-                  <div className="relative z-10 bg-[#141922]/90 backdrop-blur -mx-4 -mb-4 p-3 border-t border-gray-800">
-                    <h3 className="font-bold text-sm text-white group-hover:text-[#d92759] transition truncate">
-                      {juego.nombre}
-                    </h3>
-                    <div className="flex items-center justify-between text-[11px] text-gray-400 mt-1">
-                      <span>{juego.categoria}</span>
-                      <span className="text-[#d92759] font-semibold">{juego.clipsCount}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+                id={juego.id}
+                nombre={juego.nombre}
+                categoria={juego.categoria}
+                clipsCount={juego.clipsCount}
+                posicion={juego.posicion}
+                color={juego.color}
+              />
             ))}
           </div>
         </section>
 
-        {/* Sección: Fin de semana en Overwatch (Destacado del wireframe existente) */}
+        {/* Sección: Fin de semana en Overwatch */}
         <section className="bg-[#1a222f] p-6 sm:p-8 rounded-3xl border border-gray-700/60 shadow-xl space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
@@ -288,10 +260,10 @@ export default function JuegosInicio() {
             style={{ scrollbarWidth: 'none' }}
           >
             {[
-              { titulo: 'Combo gravitón + bomba', duracion: '0:28', vistas: '14.2k' },
-              { titulo: 'Widowmaker 4K instantáneo', duracion: '0:19', vistas: '28.6k' },
-              { titulo: 'Lucio boop triple en Ilios', duracion: '0:15', vistas: '35.1k' },
-              { titulo: 'Parada milagrosa en overtime', duracion: '0:42', vistas: '18.9k' },
+              { titulo: 'Combo gravitón + bomba', duracion: '0:28', vistas: '14.2k vistas' },
+              { titulo: 'Widowmaker 4K instantáneo', duracion: '0:19', vistas: '28.6k vistas' },
+              { titulo: 'Lucio boop triple en Ilios', duracion: '0:15', vistas: '35.1k vistas' },
+              { titulo: 'Parada milagrosa en overtime', duracion: '0:42', vistas: '18.9k vistas' },
             ].map((clip, i) => (
               <Link
                 key={i}
@@ -330,7 +302,7 @@ export default function JuegosInicio() {
                     <h4 className="text-xs font-bold text-white group-hover:text-[#d92759] transition truncate">
                       {clip.titulo}
                     </h4>
-                    <p className="text-[11px] text-gray-400">{clip.vistas} vistas · Ver clip</p>
+                    <p className="text-[11px] text-gray-400">{clip.vistas} · Ver clip</p>
                   </div>
                 </div>
               </Link>
@@ -338,7 +310,7 @@ export default function JuegosInicio() {
           </div>
         </section>
 
-        {/* Sección NUEVA solicitada: Clips en Tendencia de la Comunidad con enlaces a Usuarios */}
+        {/* Sección: Clips en Tendencia de la Comunidad usando ClipCard modular */}
         <section className="space-y-6 pt-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
@@ -354,129 +326,26 @@ export default function JuegosInicio() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {clipsTendencia.map((clip) => (
-              <div
+              <ClipCard
                 key={clip.id}
-                className="bg-[#222a37] rounded-2xl overflow-hidden border border-gray-700/60 hover:border-[#d92759] transition-all duration-300 group shadow-lg flex flex-col"
-              >
-                {/* Miniatura del clip */}
-                <div
-                  onClick={() => setClipModal(clip)}
-                  className="aspect-video bg-[#141922] relative cursor-pointer overflow-hidden flex items-center justify-center"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#141922] via-[#243447] to-[#141922] opacity-80 group-hover:scale-105 transition-transform duration-500"></div>
-
-                  <div className="w-12 h-12 rounded-full bg-[#d92759] text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#eb3369] transition duration-300 z-10">
-                    <svg className="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-
-                  <span className="absolute bottom-2.5 right-2.5 bg-black/80 backdrop-blur text-[11px] font-mono text-white px-2 py-0.5 rounded border border-white/10">
-                    {clip.duracion}
-                  </span>
-
-                  <span className="absolute top-2.5 left-2.5 bg-[#d92759]/90 backdrop-blur text-[10px] font-bold uppercase tracking-wider text-white px-2 py-0.5 rounded">
-                    {clip.juego}
-                  </span>
-                </div>
-
-                {/* Metadatos y Creador (Enlace a Usuario) */}
-                <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3
-                      onClick={() => setClipModal(clip)}
-                      className="font-bold text-white text-sm hover:text-[#d92759] transition cursor-pointer line-clamp-1"
-                    >
-                      {clip.titulo}
-                    </h3>
-                    <p className="text-xs text-gray-400 font-mono mt-1">
-                      {clip.vistas} vistas · {clip.hace}
-                    </p>
-                  </div>
-
-                  {/* Creador del clip que enlaza a la página de Usuario */}
-                  <div className="pt-2 border-t border-gray-700/50 flex items-center justify-between">
-                    <Link
-                      to={`/usuario/${clip.creador}`}
-                      className="flex items-center gap-2 group/user hover:opacity-90 transition"
-                      title={`Ver perfil de ${clip.creadorNombre}`}
-                    >
-                      <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-gray-700 to-gray-600 flex items-center justify-center text-xs font-black text-white group-hover/user:ring-2 ring-[#d92759] transition">
-                        {clip.creadorNombre.charAt(0)}
-                      </div>
-                      <span className="text-xs font-semibold text-gray-300 group-hover/user:text-[#d92759] transition">
-                        @{clip.creador}
-                      </span>
-                    </Link>
-
-                    <Link
-                      to={`/juegos/${clip.juegoId}`}
-                      className="text-[11px] text-gray-400 hover:text-white transition font-medium"
-                    >
-                      Ver juego →
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                clip={clip}
+                onClick={(c) => setClipModal(c)}
+                showCreator={true}
+                showGame={true}
+              />
             ))}
           </div>
         </section>
 
       </main>
 
-      {/* Modal de Clip */}
-      {clipModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#1a222f] border border-gray-700 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200">
-            <div className="flex items-center justify-between p-4 border-b border-gray-700/60 bg-[#141922]">
-              <div className="flex items-center gap-3">
-                <span className="text-xl">🎮</span>
-                <div>
-                  <h3 className="text-sm font-bold text-white">{clipModal.titulo}</h3>
-                  <p className="text-xs text-gray-400">{clipModal.juego} · Clip de @{clipModal.creador}</p>
-                </div>
-              </div>
-              <button
-                onClick={() => setClipModal(null)}
-                className="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white flex items-center justify-center transition cursor-pointer"
-              >
-                ✕
-              </button>
-            </div>
+      {/* Modal de Clip modular */}
+      <ClipModal
+        clip={clipModal}
+        onClose={() => setClipModal(null)}
+      />
 
-            <div className="aspect-video bg-black relative flex items-center justify-center">
-              <div className="text-center space-y-3">
-                <div className="w-16 h-16 rounded-full bg-[#d92759] text-white flex items-center justify-center mx-auto shadow-xl">
-                  <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-xs font-mono text-gray-400">Reproduciendo {clipModal.duracion} en 1440p 60fps</p>
-              </div>
-            </div>
-
-            <div className="p-4 flex items-center justify-between bg-[#141922] text-xs">
-              <Link
-                to={`/usuario/${clipModal.creador}`}
-                className="text-[#d92759] font-bold hover:underline"
-              >
-                Ver más clips de @{clipModal.creador} →
-              </Link>
-              <button
-                onClick={() => alert('¡Enlace de clip copiado!')}
-                className="bg-[#222a37] hover:bg-[#2c3646] text-white font-bold px-4 py-2 rounded-xl transition border border-gray-700 cursor-pointer"
-              >
-                Compartir 🔗
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Footer */}
-      <footer className="mt-auto border-t border-gray-800/80 bg-[#141922] py-8 px-6 text-center text-sm text-gray-500">
-        <p>© 2026 Clipped. Todos los derechos reservados.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

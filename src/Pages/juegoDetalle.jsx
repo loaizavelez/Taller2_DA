@@ -1,6 +1,12 @@
 import { useState } from 'react';
-import Navbar from '../Componentes/Navbar';
 import { Link, useParams } from 'react-router-dom';
+import {
+  Navbar,
+  Footer,
+  CreatorItem,
+  ClipCard,
+  ClipModal,
+} from '../Componentes';
 
 export default function JuegoDetalle() {
   const { juegoId } = useParams();
@@ -31,54 +37,66 @@ export default function JuegoDetalle() {
           titulo: 'Pentakill imposible con Reaper en tiempo extra',
           creador: 'JhonHelldiver',
           duracion: '0:34',
-          vistas: '45.2k',
+          vistas: '45.2k vistas',
           hace: 'hace 1 día',
           categoria: 'Mejores jugadas',
+          resolucion: '1440p 60fps',
+          juego: 'Overwatch 2',
         },
         {
           id: 2,
           titulo: 'Widowmaker 360 no scope en King’s Row',
           creador: 'FristianoRonaldo',
           duracion: '0:22',
-          vistas: '42.9k',
+          vistas: '42.9k vistas',
           hace: 'hace 3 días',
           categoria: 'Clutchs',
+          resolucion: '1080p 120fps',
+          juego: 'Overwatch 2',
         },
         {
           id: 3,
           titulo: 'Resurrección cuádruple en el último segundo',
           creador: 'HealerMain',
           duracion: '0:26',
-          vistas: '21.7k',
+          vistas: '21.7k vistas',
           hace: 'hace 4 días',
           categoria: 'Competitivo',
+          resolucion: '1440p 60fps',
+          juego: 'Overwatch 2',
         },
         {
           id: 4,
           titulo: 'Earthshatter a través de la carga que gana la final',
           creador: 'TankPro',
           duracion: '0:35',
-          vistas: '19.3k',
+          vistas: '19.3k vistas',
           hace: 'hace 5 días',
           categoria: 'Competitivo',
+          resolucion: '1440p 60fps',
+          juego: 'Overwatch 2',
         },
         {
           id: 5,
           titulo: 'Baja cuádruple con la bomba de D.Va tras resbalar',
           creador: 'JhonHelldiver',
           duracion: '0:29',
-          vistas: '11.8k',
+          vistas: '11.8k vistas',
           hace: 'hace 1 semana',
           categoria: 'Mejores jugadas',
+          resolucion: '1440p 60fps',
+          juego: 'Overwatch 2',
         },
         {
           id: 6,
           titulo: 'Robo épico de punto en Ilios Pozo con Lucio',
           creador: 'ToxicPlayer',
           duracion: '0:31',
-          vistas: '8.6k',
+          vistas: '8.6k vistas',
           hace: 'hace 2 semanas',
           categoria: 'Bloopers',
+          resolucion: '1080p 60fps',
+          juego: 'Overwatch 2',
         },
       ],
     },
@@ -106,54 +124,66 @@ export default function JuegoDetalle() {
           titulo: 'Extracción en el último segundo esquivando 4 Titanes',
           creador: 'BugOnAHelldiverSuit',
           duracion: '0:48',
-          vistas: '38.9k',
+          vistas: '38.9k vistas',
           hace: 'hace 2 días',
           categoria: 'Clutchs',
+          resolucion: '4K 60fps',
+          juego: 'Helldivers 2',
         },
         {
           id: 2,
           titulo: 'Sobreviviendo a 3 Titanes de Bilis en solitario',
           creador: 'JhonHelldiver',
           duracion: '1:12',
-          vistas: '34.2k',
+          vistas: '34.2k vistas',
           hace: 'hace 1 semana',
           categoria: 'Mejores jugadas',
+          resolucion: '4K 60fps',
+          juego: 'Helldivers 2',
         },
         {
           id: 3,
           titulo: 'Ataque orbital 500kg perfecto sobre nido principal',
           creador: 'ToxicPlayer',
           duracion: '0:38',
-          vistas: '22.3k',
+          vistas: '22.3k vistas',
           hace: 'hace 3 semanas',
           categoria: 'Mejores jugadas',
+          resolucion: '4K 60fps',
+          juego: 'Helldivers 2',
         },
         {
           id: 4,
           titulo: 'Caída cómica intentando subir a la nave Pelican-1',
           creador: 'BugOnAHelldiverSuit',
           duracion: '0:25',
-          vistas: '19.4k',
+          vistas: '19.4k vistas',
           hace: 'hace 3 semanas',
           categoria: 'Bloopers',
+          resolucion: '1080p 60fps',
+          juego: 'Helldivers 2',
         },
         {
           id: 5,
           titulo: 'Defensa heroica con torreta automática en nivel 9',
           creador: 'TankPro',
           duracion: '0:45',
-          vistas: '15.6k',
+          vistas: '15.6k vistas',
           hace: 'hace 1 mes',
           categoria: 'Competitivo',
+          resolucion: '4K 60fps',
+          juego: 'Helldivers 2',
         },
         {
           id: 6,
           titulo: 'Disparo de lanzacohetes a quemarropa sin morir',
           creador: 'FristianoRonaldo',
           duracion: '0:30',
-          vistas: '12.1k',
+          vistas: '12.1k vistas',
           hace: 'hace 1 mes',
           categoria: 'Clutchs',
+          resolucion: '1080p 60fps',
+          juego: 'Helldivers 2',
         },
       ],
     },
@@ -255,7 +285,7 @@ export default function JuegoDetalle() {
             </div>
           </div>
 
-          {/* Columna 2: CREADORES DESTACADOS (Enlazados directamente al Perfil de Usuario) */}
+          {/* Columna 2: CREADORES DESTACADOS usando CreatorItem modular */}
           <div className="md:col-span-4 flex flex-col">
             <div className="bg-[#222a37] rounded-2xl p-6 flex-1 shadow-xl border border-gray-800/80 flex flex-col justify-between">
               <div>
@@ -266,75 +296,32 @@ export default function JuegoDetalle() {
                   <span className="text-[11px] text-gray-400 font-mono">Top Jugadores</span>
                 </div>
 
-                {/* Creadores Principales - Con enlaces a su página de usuario */}
+                {/* Creadores Principales */}
                 <div className="space-y-4 mb-6">
                   {juegoActual.creadoresPrincipales.map((creador, i) => (
-                    <Link
+                    <CreatorItem
                       key={i}
-                      to={`/usuario/${creador.handle}`}
-                      className="flex items-center justify-between p-2 rounded-xl hover:bg-[#141922] transition-all duration-200 group cursor-pointer border border-transparent hover:border-gray-800"
-                      title={`Ver perfil de @${creador.handle}`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[#141922] flex items-center justify-center group-hover:ring-2 ring-[#d92759] transition-all duration-300">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-5 h-5 text-gray-500 group-hover:text-[#d92759] transition-colors"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <div>
-                          <span className="text-gray-200 font-bold text-sm tracking-wide group-hover:text-white block">
-                            @{creador.handle}
-                          </span>
-                          <span className="text-[11px] text-gray-400">
-                            {creador.rol}
-                          </span>
-                        </div>
-                      </div>
-
-                      <span className="text-xs text-[#d92759] opacity-0 group-hover:opacity-100 transition-opacity font-bold">
-                        Ver Perfil →
-                      </span>
-                    </Link>
+                      handle={creador.handle}
+                      rol={creador.rol}
+                      tipo="principal"
+                    />
                   ))}
                 </div>
 
                 <hr className="border-gray-700/40 mb-4" />
 
-                {/* Creadores Secundarios - Con enlaces a su página de usuario */}
+                {/* Creadores Secundarios */}
                 <div className="space-y-2">
                   <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-2">
                     Comunidad Activa
                   </span>
                   {juegoActual.creadoresSecundarios.map((creador, i) => (
-                    <Link
+                    <CreatorItem
                       key={i}
-                      to={`/usuario/${creador.handle}`}
-                      className="flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#141922] transition-colors group cursor-pointer"
-                      title={`Ver perfil de @${creador.handle}`}
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-6 h-6 rounded-full bg-[#141922] flex items-center justify-center group-hover:ring-1 ring-[#d92759] transition">
-                          <span className="text-[10px] font-bold text-gray-400 group-hover:text-white">
-                            {creador.handle.charAt(0)}
-                          </span>
-                        </div>
-                        <span className="text-gray-400 font-medium text-xs group-hover:text-white transition-colors">
-                          @{creador.handle}
-                        </span>
-                      </div>
-                      <span className="text-[10px] text-gray-500 font-mono">
-                        {creador.rol}
-                      </span>
-                    </Link>
+                      handle={creador.handle}
+                      rol={creador.rol}
+                      tipo="secundario"
+                    />
                   ))}
                 </div>
               </div>
@@ -391,8 +378,7 @@ export default function JuegoDetalle() {
 
         </div>
 
-        {/* REJILLA DE CLIPS DEL JUEGO SOLICITADA POR EL USUARIO:
-            "y que al darle click en un juego salga una rejilla de clips de ese juego tambien" */}
+        {/* Rejilla de Clips del Juego usando ClipCard modular */}
         <section className="space-y-6 pt-4 border-t border-gray-800/80">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
@@ -425,70 +411,13 @@ export default function JuegoDetalle() {
           {/* Rejilla de Clips */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {clipsFiltrados.map((clip) => (
-              <div
+              <ClipCard
                 key={clip.id}
-                className="bg-[#222a37] rounded-2xl overflow-hidden border border-gray-700/60 hover:border-[#d92759] transition-all duration-300 group shadow-lg flex flex-col hover:-translate-y-1"
-              >
-                {/* Miniatura interactiva */}
-                <div
-                  onClick={() => setClipModal(clip)}
-                  className="aspect-video bg-[#141922] relative cursor-pointer overflow-hidden flex items-center justify-center"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#141922] via-[#243447] to-[#141922] opacity-80 group-hover:scale-105 transition-transform duration-500"></div>
-
-                  <div className="w-12 h-12 rounded-full bg-[#d92759] text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#eb3369] transition duration-300 z-10">
-                    <svg className="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-
-                  <span className="absolute bottom-2.5 right-2.5 bg-black/80 backdrop-blur text-[11px] font-mono text-white px-2 py-0.5 rounded border border-white/10">
-                    {clip.duracion}
-                  </span>
-
-                  <span className="absolute top-2.5 left-2.5 bg-[#141922]/90 backdrop-blur text-[10px] font-bold text-gray-300 px-2 py-0.5 rounded border border-gray-700">
-                    {clip.categoria}
-                  </span>
-                </div>
-
-                {/* Info del Clip y Enlace a Usuario */}
-                <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3
-                      onClick={() => setClipModal(clip)}
-                      className="font-bold text-white text-sm hover:text-[#d92759] transition cursor-pointer line-clamp-1"
-                    >
-                      {clip.titulo}
-                    </h3>
-                    <p className="text-xs text-gray-400 font-mono mt-1">
-                      {clip.vistas} vistas · {clip.hace}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 border-t border-gray-700/50 flex items-center justify-between text-xs">
-                    {/* Enlace al perfil del creador */}
-                    <Link
-                      to={`/usuario/${clip.creador}`}
-                      className="flex items-center gap-2 group/user hover:opacity-90 transition"
-                      title={`Ver perfil de @${clip.creador}`}
-                    >
-                      <div className="w-6 h-6 rounded-full bg-[#141922] flex items-center justify-center text-[10px] font-bold text-white group-hover/user:ring-2 ring-[#d92759] transition">
-                        {clip.creador.charAt(0)}
-                      </div>
-                      <span className="font-semibold text-gray-300 group-hover/user:text-[#d92759] transition">
-                        @{clip.creador}
-                      </span>
-                    </Link>
-
-                    <button
-                      onClick={() => setClipModal(clip)}
-                      className="text-[#d92759] hover:underline font-semibold cursor-pointer"
-                    >
-                      Ver jugada →
-                    </button>
-                  </div>
-                </div>
-              </div>
+                clip={clip}
+                onClick={(c) => setClipModal(c)}
+                showCreator={true}
+                showGame={false}
+              />
             ))}
           </div>
 
@@ -501,63 +430,13 @@ export default function JuegoDetalle() {
 
       </main>
 
-      {/* Modal de Clip */}
-      {clipModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#1a222f] border border-gray-700 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200">
-            <div className="flex items-center justify-between p-4 border-b border-gray-700/60 bg-[#141922]">
-              <div className="flex items-center gap-3">
-                <span className="text-xl">🎮</span>
-                <div>
-                  <h3 className="text-sm font-bold text-white">{clipModal.titulo}</h3>
-                  <p className="text-xs text-gray-400">
-                    {juegoActual.nombre} · Por @{clipModal.creador}
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={() => setClipModal(null)}
-                className="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white flex items-center justify-center transition cursor-pointer"
-              >
-                ✕
-              </button>
-            </div>
+      {/* Modal de Clip modular */}
+      <ClipModal
+        clip={clipModal}
+        onClose={() => setClipModal(null)}
+      />
 
-            <div className="aspect-video bg-black relative flex items-center justify-center">
-              <div className="text-center space-y-3">
-                <div className="w-16 h-16 rounded-full bg-[#d92759] text-white flex items-center justify-center mx-auto shadow-xl">
-                  <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-xs font-mono text-gray-400">
-                  Reproduciendo {clipModal.duracion} en 1440p 60fps
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 flex items-center justify-between bg-[#141922] text-xs">
-              <Link
-                to={`/usuario/${clipModal.creador}`}
-                className="text-[#d92759] font-bold hover:underline"
-              >
-                Ver perfil y más clips de @{clipModal.creador} →
-              </Link>
-              <button
-                onClick={() => alert('¡Enlace copiado al portapapeles!')}
-                className="bg-[#222a37] hover:bg-[#2c3646] text-white font-bold px-4 py-2 rounded-xl transition border border-gray-700 cursor-pointer"
-              >
-                Compartir 🔗
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Footer */}
-      <footer className="mt-auto border-t border-gray-800/80 bg-[#141922] py-8 px-6 text-center text-sm text-gray-500">
-        <p>© 2026 Clipped. Todos los derechos reservados.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
