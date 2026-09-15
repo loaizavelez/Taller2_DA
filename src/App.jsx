@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './Pages/LandingPage/LandingPage';
 import Descarga from './Pages/Descarga/Descarga';
 import JuegosInicio from './Pages/juegosInicio';
@@ -8,7 +8,7 @@ import Usuario from './Pages/Usuario/Usuario';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* Ruta principal / inicio */}
         <Route path="/" element={<LandingPage />} />
@@ -31,7 +31,7 @@ function App() {
         <Route path="/usuario" element={<Usuario />} />
         <Route path="/usuario/:username" element={<Usuario />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
