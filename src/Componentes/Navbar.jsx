@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
@@ -13,10 +12,11 @@ export default function Navbar() {
         <span className="text-xl font-black tracking-widest text-white">CLIPPED</span>
       </Link>
       
-      <nav className="flex items-center gap-8 text-sm font-medium">
+      <nav className="flex items-center gap-6 sm:gap-8 text-sm font-medium">
         <Link to="/" className="text-gray-400 hover:text-white transition">Inicio</Link>
-        <Link to="/juegos" className="text-white hover:text-gray-300 transition">Juegos</Link>
-        <button className="bg-[#222a37] hover:bg-[#2c3646] text-white px-5 py-2.5 rounded-lg transition border border-gray-700/50 font-semibold">
+        <Link to="/features" className="text-gray-400 hover:text-white transition">Features</Link>
+        <Link to="/juegos" className="text-gray-400 hover:text-white transition">Juegos</Link>
+        <button className="bg-[#222a37] hover:bg-[#2c3646] text-white px-5 py-2.5 rounded-lg transition border border-gray-700/50 font-semibold cursor-pointer">
           Iniciar sesión
         </button>
       </nav>
